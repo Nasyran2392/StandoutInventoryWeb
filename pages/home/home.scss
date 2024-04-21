@@ -1,0 +1,294 @@
+.home {
+  display: flex;
+    width: 100%;
+
+  .homeContainer {
+    flex: 6;
+
+    .inventoryContainer {
+      padding: 10px;
+      height: 50vh; /* Set height to 35% of the viewport height */
+      overflow-y: auto; /* Enable vertical scrolling */
+      display: flex; /* Use flexbox to align items */
+      justify-content: space-between; /* Space between the cards */
+
+      .inventoryCard,
+      .pendingTaskCard {
+        flex: 1; /* Equal width for both cards */
+        border-radius: 10px; /* Add border radius for rounded corners */
+        padding: 10px; /* Add padding for spacing */
+        margin: 0 10px; /* Add margin between the cards */
+        overflow-y: auto; /* Enable vertical scrolling if needed */
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        align-items: center;
+        flex-direction: column;
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+
+        &:hover {
+          background-color: #f5f5f5; /* Light gray background color on hover */
+        }
+      }
+
+      .inventoryGraphs {
+        display: flex; /* Display graphs horizontally */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        gap: 8px; /* Add gap between graphs */
+        justify-content: flex-start; /* Start from the left */
+        align-items: flex-start; /* Align graphs to the top of the container */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        padding-bottom: 20px; /* Add some bottom padding to prevent content from sticking to the scrollbar */
+      }
+
+      .inventoryItem {
+        text-align: center;
+
+        .progressCircle {
+          width: 100px; /* Adjust size as needed */
+          height: 170px; /* Adjust size as needed */
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .progressSvg {
+            width: 100%;
+            height: 50%;
+            transform: rotate(-90deg); /* Rotate the SVG by -90 degrees to start at 12 o'clock */
+          }
+
+          .progressBarBackground {
+            fill: none;
+            stroke: #ddd; /* Background color */
+            stroke-width: 4; /* Adjust stroke width as needed */
+            stroke-linecap: round;
+          }
+
+          .progressBarStroke {
+            fill: none;
+            stroke-width: 4; /* Adjust stroke width as needed */
+            stroke-linecap: round;
+            transition: stroke-dasharray 0.5s ease; /* Adjust transition duration as needed */
+          }
+
+          .progressNumber {
+            font-weight: bold;
+            font-size: 16px; /* Adjust font size as needed */
+            margin-bottom: 5px; /* Add margin to separate the number from the title */
+          }
+
+          .productName {
+            // font-weight: bold;
+            font-size: 14px; /* Adjust font size as needed */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100%; /* Ensure the product name doesn't overflow the container */
+            cursor: pointer; /* Change cursor to pointer to indicate hover effect */
+          }
+
+          .productName:hover {
+            white-space: normal; /* Show full text on hover */
+          }
+        }
+      }
+
+      .pendingTaskCard {
+        flex: 1;
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 0 10px;
+        overflow-y: auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+
+        &:hover {
+          background-color: #f5f5f5; /* Light gray background color on hover */
+        }
+
+        h3 {
+          margin-bottom: 15px;
+          text-align: center;
+          color: #333333;
+        }
+
+        .pendingTaskContent {
+          h4 {
+            display: inline-block;
+            margin-left: 19%;
+          }
+
+          .space {
+            margin: 0 100px;
+          }
+        }
+
+        .pendingTaskGrid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr)); /* Use minmax for flexible sizing */
+          gap: 10px;
+
+          &:last-child {
+            margin-bottom: 20px; // Add margin to the last grid for spacing
+          }
+        }
+
+        .pendingTaskGrid2 {
+          margin-top: 10px;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr)); /* Use minmax for flexible sizing */
+          gap: 10px;
+
+          &:last-child {
+            margin-bottom: 20px; // Add margin to the last grid for spacing
+          }
+        }
+
+        .pendingTaskItem {
+          background-color: #ffffff;
+          border-radius: 10px;
+          padding: 20px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+
+          transition: background-color 0.3s ease; /* Smooth transition for background color */
+
+          &:hover {
+            background-color: #f5f5f5; /* Light gray background color on hover */
+          }
+
+          .stockpendingcount {
+            color: rgb(255, 140, 0);
+          }
+
+          .stockinprogresscount {
+            color: rgb(5, 159, 43);
+          }
+
+          table {
+            width: 100%;
+            border-collapse: collapse;
+
+            th,
+            td {
+              padding: 5px;
+              border-bottom: 1px solid #ddd;
+            }
+
+            th {
+              // background-color: #f1f1f1;
+              background-color: #f0e1ff;
+              font-weight: bold;
+            }
+
+            td {
+              text-align: center;
+            }
+          }
+        }
+
+        .pendingTaskItem:nth-child(5) {
+          margin-right: 5px; /* Add margin-right */
+          width: calc(100% - 10px); /* Adjust width as needed */
+        }
+
+        .pendingTaskItem:nth-child(6) {
+          margin-left: 5px; /* Add margin-left */
+          width: calc(100% - 10px); /* Adjust width as needed */
+        }
+      }
+    }
+
+    .inventoryDataTable {
+      // margin-top: 20px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      img {
+        max-width: 20px; // Adjust the maximum width of the avatar image
+        max-height: 20px; // Adjust the maximum height of the avatar image
+        border-radius: 50%; // Make the image circular
+      }
+
+      .seemorebutton
+      {
+        max-width: 200px; // Adjust the maximum width of the avatar image
+        max-height: 40px; // Adjust the maximum height of the avatar image
+        border-radius: 6%; // Make the image circular
+        font-size: 13px;
+        color: #ffffff;
+        font-weight: bold;
+        background-color: #83bcf9;
+        margin-top: 10px;
+        margin-left: 40%;
+        
+      }
+
+      h3 {
+        margin-bottom: 10px;
+        text-align: center;
+        color: #333333;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th:first-child,
+        td:first-child {
+          width: 5%; // Adjust the width of the avatar profile column
+          text-align: center;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+          width: 10%; // Adjust the width of the product name column
+          max-width: 200px; // Set a maximum width for the product name column
+          overflow: hidden; // Hide overflowed content
+          white-space: nowrap; // Prevent wrapping of text
+          text-overflow: ellipsis; // Display ellipsis (...) for overflowed text
+        }
+
+        th:last-child,
+        td:last-child {
+          width: 15%; // Adjust the width of the percentage column
+        }
+
+        th,
+        td {
+          padding: 5px;
+          border-bottom: 1px solid #ddd;
+
+          .progress-bar-container {
+            width: 100%;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden; /* Ensure the progress bar stays within the container */
+          }
+
+          .progress-bar {
+            height: 100%;
+            line-height: 20px; /* Center the percentage text vertically */
+            background-color: #007bff; /* Default color for the progress bar */
+            color: #fff; /* Text color */
+            text-align: center; /* Center the percentage text horizontally */
+            transition: width 0.5s ease; /* Smooth transition for width changes */
+          }
+        }
+
+        th {
+          background-color: #f0e1ff;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

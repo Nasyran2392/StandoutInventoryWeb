@@ -1,0 +1,26 @@
+/* InventoryPage.css */
+
+.inventory-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-item-container {
+    margin-bottom: 20px;
+}
+
+.inventory-list-container {
+    width: 80%;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.inventory-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+}

@@ -1,0 +1,68 @@
+.ListStockOut {
+  display: flex;
+  width: 100%;
+
+  .listContainer {
+    flex: 6;
+
+    .tableSelection {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px; /* Add margin at the bottom */
+      margin-top: 20px; /* Add margin at the top */
+      
+      button {
+        background-color:  #f9f5fc;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-right: 10px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        color: black;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+
+        &.selected {
+          background-color: #997efb;
+          color: #fff;
+
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+
+        .count1 {
+          background-color: rgb(36, 161, 92);
+          color: white;
+          border-radius: 50%;
+          padding: 3px 9px;
+          margin-left: 5px;
+          font-size: 13px; // Add some space between the count and the button text
+        }
+
+        .count2 {
+          background-color: rgb(242, 207, 66);
+          color: white;
+          border-radius: 50%;
+          padding: 3px 9px;
+          margin-left: 5px;
+          font-size: 13px; // Add some space between the count and the button text
+        }
+
+        .count3 {
+          background-color: rgb(226, 83, 83);
+          color: white;
+          border-radius: 50%;
+          padding: 3px 9px;
+          margin-left: 5px;
+          font-size: 13px; // Add some space between the count and the button text
+        }
+      }
+    }
+  }
+}
